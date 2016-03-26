@@ -37,6 +37,8 @@ void UGetFrisbeeComponent::TickComponent( float DeltaTime, ELevelTick TickType, 
 
 	if (controller->IsInputKeyDown(EKeys::A) && distance < 200.0f) {
 		this->frisbee->mesh->AddForce(FVector(0, 0, 500000));
+		GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red, "Bonjjour");
+
 	}
 }
 
