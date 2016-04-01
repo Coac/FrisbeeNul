@@ -15,6 +15,8 @@ AFrisbee::AFrisbee()
 	this->mesh = CreateAbstractDefaultSubobject<UStaticMeshComponent>(TEXT("Mesh"));
 
 	this->RootComponent = this->mesh;
+	this->shape->AttachTo(this->RootComponent);
+
 }
 
 // Called when the game starts or when spawned
