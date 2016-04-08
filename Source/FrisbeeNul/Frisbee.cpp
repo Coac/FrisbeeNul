@@ -16,7 +16,19 @@ AFrisbee::AFrisbee()
 
 	this->RootComponent = this->mesh;
 	this->shape->AttachTo(this->RootComponent);
+}
 
+
+void AFrisbee::attachToPlayer(AActor* playerOwner) {
+	this->AttachRootComponentToActor(playerOwner, "", EAttachLocation::KeepWorldPosition);
+	this->playerOwner = playerOwner;
+	this->mesh->SetSimulatePhysics(false);
+}
+
+void AFrisbee::unattachToPlayer() {
+	this->AttachRootComponentToActor(this, "", EAttachLocation::KeepWorldPosition);
+	this->mesh->SetSimulatePhysics(true);
+	this->playerOwner = false;
 }
 
 // Called when the game starts or when spawned

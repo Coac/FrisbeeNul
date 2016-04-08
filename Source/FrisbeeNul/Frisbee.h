@@ -9,7 +9,7 @@ UCLASS()
 class FRISBEENUL_API AFrisbee : public AActor
 {
 	GENERATED_BODY()
-	
+
 public:	
 	// Sets default values for this actor's properties
 	AFrisbee();
@@ -20,10 +20,20 @@ public:
 	// Called every frame
 	virtual void Tick( float DeltaSeconds ) override;
 
+	void attachToPlayer(AActor* playerOwner);
+
+	void unattachToPlayer();
+
+	AActor* playerOwner;
+
+
+
 	UPROPERTY(EditAnywhere)
 		UShapeComponent* shape;
 
 	UPROPERTY(EditAnywhere)
 		UStaticMeshComponent* mesh;
+
+	
 	
 };
