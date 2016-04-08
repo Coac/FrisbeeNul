@@ -28,6 +28,8 @@ void AFrisbeeNulPlayerController::SetupInputComponent()
 
 	InputComponent->BindAction("SetDestination", IE_Pressed, this, &AFrisbeeNulPlayerController::OnSetDestinationPressed);
 	InputComponent->BindAction("SetDestination", IE_Released, this, &AFrisbeeNulPlayerController::OnSetDestinationReleased);
+	InputComponent->BindAxis("MoveForward", this, &AFrisbeeNulPlayerController::MoveForward);
+	InputComponent->BindAxis("MoveRight", this, &AFrisbeeNulPlayerController::MoveRight);
 
 	// support touch devices 
 	InputComponent->BindTouch(EInputEvent::IE_Pressed, this, &AFrisbeeNulPlayerController::MoveToTouchLocation);
@@ -87,4 +89,21 @@ void AFrisbeeNulPlayerController::OnSetDestinationReleased()
 {
 	// clear flag to indicate we should stop updating the destination
 	bMoveToMouseCursor = false;
+}
+
+
+void AFrisbeeNulPlayerController::MoveForward(float AxisValue)
+{
+	APawn* const Pawn = GetPawn();
+	if (Pawn) {
+		Pawn->AddMovementInput(FVector::ForwardVector, FMath::Clamp<float>(AxisValue, -1.0f, 1.0f), false);
+	}
+}
+
+void AFrisbeeNulPlayerController::MoveRight(float AxisValue)
+{
+	APawn* const Pawn = GetPawn();
+	if (Pawn) {
+		Pawn->AddMovementInput(FVector::RightVector, FMath::Clamp<float>(AxisValue, -1.0f, 1.0f), false);
+	}
 }
