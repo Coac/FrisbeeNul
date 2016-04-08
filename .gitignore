@@ -65,3 +65,8 @@ DerivedDataCache/*
 *.swp
 *.swo
 .ctrlp_cache/
+
+#VS 
+*.VC.db
+*.VC.opendb
+*.opendb
