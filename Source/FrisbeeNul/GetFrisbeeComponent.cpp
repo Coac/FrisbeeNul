@@ -36,12 +36,14 @@ void UGetFrisbeeComponent::TickComponent( float DeltaTime, ELevelTick TickType, 
 
 
 	APlayerController* controller = UGameplayStatics::GetPlayerController(GetWorld(), 0);
-
+	
+	if (!controller) {
+		return;
+	}
 
 	if (controller->IsInputKeyDown(EKeys::A) && distance < 200.0f) {
 		this->frisbee->attachToPlayer(this->GetOwner());
 		this->frisbee->SetActorRelativeLocation(FVector(0, 0, 100));
-
 	}
 	else if (controller->IsInputKeyDown(EKeys::Z)) {
 		if (this->frisbee->playerOwner == this->GetOwner()) {
