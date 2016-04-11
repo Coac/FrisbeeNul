@@ -4,9 +4,9 @@ FrisbeeNul
 ## Comment récupérer le projet
 
 ### Pré-requis
- - [unreal engine 4.10.4](https://www.unrealengine.com/)
- - [git](https://git-scm.com/downloads)
- - [visual studio](https://www.visualstudio.com/post-download-vs?sku=community&clcid=0x40c) (pensez à installer les [outils courants pour visual c++ 2015](http://puu.sh/o2xgS/e0aa1448ef.png))
+ - [Unreal engine 4.10.4](https://www.unrealengine.com/)
+ - [Git](https://git-scm.com/downloads)
+ - [Visual studio](https://www.visualstudio.com/post-download-vs?sku=community&clcid=0x40c) (pensez à installer les [outils courants pour visual c++ 2015](http://puu.sh/o2xgS/e0aa1448ef.png))
 
 ### Obtenir votre propre version du projet
 
