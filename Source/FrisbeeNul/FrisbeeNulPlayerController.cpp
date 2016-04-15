@@ -31,6 +31,10 @@ void AFrisbeeNulPlayerController::SetupInputComponent()
 	InputComponent->BindAxis("MoveForward", this, &AFrisbeeNulPlayerController::MoveForward);
 	InputComponent->BindAxis("MoveRight", this, &AFrisbeeNulPlayerController::MoveRight);
 
+	//Input GetFrisbeeComponent
+	InputComponent->BindAction("GetFrisbeeInput", IE_Pressed, this, &AFrisbeeNulPlayerController::getFrisbee);
+	InputComponent->BindAction("ReleaseFrisbeeInput", IE_Pressed, this, &AFrisbeeNulPlayerController::releaseFrisbee);
+
 	// support touch devices 
 	InputComponent->BindTouch(EInputEvent::IE_Pressed, this, &AFrisbeeNulPlayerController::MoveToTouchLocation);
 	InputComponent->BindTouch(EInputEvent::IE_Repeat, this, &AFrisbeeNulPlayerController::MoveToTouchLocation);
@@ -106,4 +110,14 @@ void AFrisbeeNulPlayerController::MoveRight(float AxisValue)
 	if (Pawn) {
 		Pawn->AddMovementInput(FVector::RightVector, FMath::Clamp<float>(AxisValue, -1.0f, 1.0f), false);
 	}
+}
+
+void AFrisbeeNulPlayerController::getFrisbee()
+{
+
+}
+
+void AFrisbeeNulPlayerController::releaseFrisbee()
+{
+
 }

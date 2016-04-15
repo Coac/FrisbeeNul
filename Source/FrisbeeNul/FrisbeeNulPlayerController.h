@@ -1,6 +1,7 @@
 // Copyright 1998-2015 Epic Games, Inc. All Rights Reserved.
 #pragma once
 #include "GameFramework/PlayerController.h"
+#include "Frisbee.h"
 #include "FrisbeeNulPlayerController.generated.h"
 
 UCLASS()
@@ -10,6 +11,10 @@ class AFrisbeeNulPlayerController : public APlayerController
 
 public:
 	AFrisbeeNulPlayerController();
+
+	UPROPERTY(EditAnywhere)
+		AFrisbee* frisbee;
+
 
 protected:
 	/** True if the controlled character should navigate to the mouse cursor. */
@@ -36,6 +41,10 @@ protected:
 	//Input functions
 	void MoveForward(float AxisValue);
 	void MoveRight(float AxisValue);
+
+	//Input frisbee
+	void getFrisbee();
+	void releaseFrisbee();
 };
 
 
