@@ -25,7 +25,7 @@ void AFrisbeeNulPlayerController::PlayerTick(float DeltaTime)
 	Super::PlayerTick(DeltaTime);
 
 	// keep updating the destination every tick while desired
-	if (bMoveToMouseCursor)
+	if (bMoveToMouseCursor && this->frisbee->playerOwner != GetPawn())
 	{
 		MoveToMouseCursor();
 	}
@@ -110,7 +110,7 @@ void AFrisbeeNulPlayerController::OnSetDestinationReleased()
 void AFrisbeeNulPlayerController::MoveForward(float AxisValue)
 {
 	APawn* const Pawn = GetPawn();
-	if (Pawn) {
+	if (Pawn && this->frisbee->playerOwner != Pawn) {
 		Pawn->AddMovementInput(FVector::ForwardVector, FMath::Clamp<float>(AxisValue, -1.0f, 1.0f), false);
 	}
 }
@@ -118,23 +118,22 @@ void AFrisbeeNulPlayerController::MoveForward(float AxisValue)
 void AFrisbeeNulPlayerController::MoveRight(float AxisValue)
 {
 	APawn* const Pawn = GetPawn();
-	if (Pawn) {
+	if (Pawn && this->frisbee->playerOwner != Pawn) {
 		Pawn->AddMovementInput(FVector::RightVector, FMath::Clamp<float>(AxisValue, -1.0f, 1.0f), false);
 	}
 }
 
 void AFrisbeeNulPlayerController::getFrisbee()
 {
-	this->frisbee->mesh->SetSimulatePhysics(false);
-	this->frisbee->AttachRootComponentToActor(GetPawn(), "", EAttachLocation::KeepWorldPosition);
+	this->frisbee->attachToPlayer(GetPawn());
+
 
 	this->frisbee->SetActorRelativeLocation(FVector(0, 0, 230));
 }
 
 void AFrisbeeNulPlayerController::releaseFrisbee()
 {
-	this->frisbee->AttachRootComponentToActor(this->frisbee, "", EAttachLocation::KeepWorldPosition);
-	this->frisbee->mesh->SetSimulatePhysics(true);
+	this->frisbee->unattachToPlayer();
 
 	this->frisbee->mesh->SetPhysicsLinearVelocity(FVector(0, 0, 0));
 	this->frisbee->mesh->AddForce(GetPawn()->GetActorForwardVector() * 10000000);

@@ -20,9 +20,9 @@ AFrisbee::AFrisbee()
 
 
 void AFrisbee::attachToPlayer(AActor* playerOwner) {
+	this->mesh->SetSimulatePhysics(false);
 	this->AttachRootComponentToActor(playerOwner, "", EAttachLocation::KeepWorldPosition);
 	this->playerOwner = playerOwner;
-	this->mesh->SetSimulatePhysics(false);
 }
 
 void AFrisbee::unattachToPlayer() {
