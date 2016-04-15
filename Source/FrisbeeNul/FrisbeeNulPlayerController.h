@@ -15,6 +15,9 @@ public:
 	UPROPERTY(EditAnywhere)
 		AFrisbee* frisbee;
 
+	virtual void BeginPlay() override;
+
+
 
 protected:
 	/** True if the controlled character should navigate to the mouse cursor. */

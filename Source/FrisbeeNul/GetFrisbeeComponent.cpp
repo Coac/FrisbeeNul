@@ -32,7 +32,7 @@ void UGetFrisbeeComponent::TickComponent( float DeltaTime, ELevelTick TickType, 
 	Super::TickComponent( DeltaTime, TickType, ThisTickFunction );
 
 	float distance = this->frisbee->GetDistanceTo(this->GetOwner());
-	GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red, this->frisbee->GetTransform().GetLocation().ToString() + " " + this->GetOwner()->GetActorLocation().ToString());
+	//GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red, this->frisbee->GetTransform().GetLocation().ToString() + " " + this->GetOwner()->GetActorLocation().ToString());
 
 
 	APlayerController* controller = UGameplayStatics::GetPlayerController(GetWorld(), 0);
@@ -41,11 +41,11 @@ void UGetFrisbeeComponent::TickComponent( float DeltaTime, ELevelTick TickType, 
 		return;
 	}
 
-	if (controller->IsInputKeyDown(EKeys::A) && distance < 200.0f) {
+	if (controller->IsInputKeyDown(EKeys::R) && distance < 200.0f) {
 		this->frisbee->attachToPlayer(this->GetOwner());
 		this->frisbee->SetActorRelativeLocation(FVector(0, 0, 100));
 	}
-	else if (controller->IsInputKeyDown(EKeys::Z)) {
+	else if (controller->IsInputKeyDown(EKeys::E)) {
 		if (this->frisbee->playerOwner == this->GetOwner()) {
 			this->frisbee->unattachToPlayer();
 			this->frisbee->mesh->SetPhysicsLinearVelocity(FVector(0, 0, 0));

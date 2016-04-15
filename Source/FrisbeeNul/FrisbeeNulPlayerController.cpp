@@ -10,6 +10,16 @@ AFrisbeeNulPlayerController::AFrisbeeNulPlayerController()
 	DefaultMouseCursor = EMouseCursor::Crosshairs;
 }
 
+void AFrisbeeNulPlayerController::BeginPlay()
+{
+	for (TActorIterator<AFrisbee> ActorItr(GetWorld()); ActorItr; ++ActorItr)
+	{
+		GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Blue, ActorItr->GetName());
+		this->frisbee = *ActorItr;
+	}
+
+}
+
 void AFrisbeeNulPlayerController::PlayerTick(float DeltaTime)
 {
 	Super::PlayerTick(DeltaTime);
@@ -19,6 +29,7 @@ void AFrisbeeNulPlayerController::PlayerTick(float DeltaTime)
 	{
 		MoveToMouseCursor();
 	}
+
 }
 
 void AFrisbeeNulPlayerController::SetupInputComponent()
@@ -114,10 +125,17 @@ void AFrisbeeNulPlayerController::MoveRight(float AxisValue)
 
 void AFrisbeeNulPlayerController::getFrisbee()
 {
+	this->frisbee->AttachRootComponentToActor(GetPawn(), "", EAttachLocation::KeepWorldPosition);
+	this->frisbee->mesh->SetSimulatePhysics(false);
 
+	this->frisbee->SetActorRelativeLocation(FVector(0, 0, 230));
 }
 
 void AFrisbeeNulPlayerController::releaseFrisbee()
 {
+	this->frisbee->AttachRootComponentToActor(this->frisbee, "", EAttachLocation::KeepWorldPosition);
+	this->frisbee->mesh->SetSimulatePhysics(true);
 
+	this->frisbee->mesh->SetPhysicsLinearVelocity(FVector(0, 0, 0));
+	this->frisbee->mesh->AddForce(GetPawn()->GetActorForwardVector() * 10000000);
 }
