@@ -125,8 +125,8 @@ void AFrisbeeNulPlayerController::MoveRight(float AxisValue)
 
 void AFrisbeeNulPlayerController::getFrisbee()
 {
-	this->frisbee->AttachRootComponentToActor(GetPawn(), "", EAttachLocation::KeepWorldPosition);
 	this->frisbee->mesh->SetSimulatePhysics(false);
+	this->frisbee->AttachRootComponentToActor(GetPawn(), "", EAttachLocation::KeepWorldPosition);
 
 	this->frisbee->SetActorRelativeLocation(FVector(0, 0, 230));
 }
