@@ -13,6 +13,5 @@ public:
 
 	float getStat(StatId statId);
 
-private:
-	Stat statList[];
+	Stat *statList[];
 };

@@ -10,3 +10,8 @@ Stat::Stat()
 Stat::~Stat()
 {
 }
+
+void Stat::addValue(float val)
+{
+	this.calculatedValue = this.baseValue + val;
+}

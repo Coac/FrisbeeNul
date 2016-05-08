@@ -11,8 +11,11 @@ public:
 	Stat();
 	~Stat();
 
+	void addValue(float val);
+
 private:
 	float baseValue;
+	float calculatedValue;
 
 };
 
