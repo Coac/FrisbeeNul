@@ -12,7 +12,7 @@ Effect::~Effect()
 {
 }
 
-void Effect::onReceiveDamage(BNYCharacter from, float damageAmount)
+void Effect::onReceiveDamage(BNYCharacter *from, float damageAmount)
 {
 }
 

@@ -12,7 +12,7 @@ public:
 	Effect(BNYCharacter *character);
 	~Effect();
 
-	void onReceiveDamage(BNYCharacter from, float damageAmount);
+	void onReceiveDamage(BNYCharacter *from, float damageAmount);
 
 	void applyStatModifier(StatId statId);
 

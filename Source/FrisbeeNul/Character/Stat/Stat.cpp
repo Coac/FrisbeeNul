@@ -13,5 +13,5 @@ Stat::~Stat()
 
 void Stat::addValue(float val)
 {
-	this.calculatedValue = this.baseValue + val;
+	this->calculatedValue = this->baseValue + val;
 }
