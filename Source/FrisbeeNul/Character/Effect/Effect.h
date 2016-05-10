@@ -17,6 +17,6 @@ public:
 	void applyStatModifier(StatId statId);
 
 
-private:
+protected:
 	BNYCharacter *character;
 };

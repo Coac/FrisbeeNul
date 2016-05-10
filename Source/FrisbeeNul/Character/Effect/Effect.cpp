@@ -18,7 +18,5 @@ void Effect::onReceiveDamage(BNYCharacter *from, float damageAmount)
 
 void Effect::applyStatModifier(StatId statId)
 {
-	if (statId == StatId::MATK) {
-		this->character->statList[statId]->addValue(1);
-	}
+
 }
