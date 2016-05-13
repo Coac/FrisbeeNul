@@ -16,7 +16,7 @@ void Effect::onReceiveDamage(BNYCharacter *from, float damageAmount)
 {
 }
 
-void Effect::applyStatModifier(StatId statId)
+void Effect::applyStatModifier()
 {
 
 }

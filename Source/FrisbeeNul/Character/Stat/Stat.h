@@ -8,10 +8,12 @@
 class FRISBEENUL_API Stat
 {
 public:
-	Stat();
+	Stat(float val);
 	~Stat();
 
 	void addValue(float val);
+	float getValue();
+	void resetToBase();
 
 private:
 	float baseValue;
@@ -19,4 +21,4 @@ private:
 
 };
 
-enum StatId { SPEED, MATK, ATK };
+enum StatId { SPEED, MATK, ATK, STAT_COUNT };

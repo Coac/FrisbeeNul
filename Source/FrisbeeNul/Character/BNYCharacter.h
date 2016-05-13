@@ -1,7 +1,11 @@
 // Fill out your copyright notice in the Description page of Project Settings.
-#include "Stat/Stat.h"
 #pragma once
 
+#include "Effect/Effect.h"
+#include "Stat/Stat.h"
+#include "Array.h"
+
+class Effect;
 /**
  * 
  */
@@ -13,5 +17,10 @@ public:
 
 	float getStat(StatId statId);
 
-	Stat *statList[];
+	void recalculateStats();
+	void resetStatsToBase();
+
+	Stat *statList[StatId::STAT_COUNT];
+	TArray<Effect> *activeEffects;
+
 };

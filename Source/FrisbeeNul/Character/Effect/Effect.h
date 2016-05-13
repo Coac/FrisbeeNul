@@ -1,8 +1,11 @@
 // Fill out your copyright notice in the Description page of Project Settings.
-#include "../BNYCharacter.h"
-#include "../Stat/Stat.h"
 #pragma once
 
+#include "../BNYCharacter.h"
+#include "../Stat/Stat.h"
+
+
+class BNYCharacter;
 /**
  * 
  */
@@ -14,9 +17,9 @@ public:
 
 	void onReceiveDamage(BNYCharacter *from, float damageAmount);
 
-	void applyStatModifier(StatId statId);
-
+	void applyStatModifier();
 
 protected:
 	BNYCharacter *character;
+	float timeLeft;
 };

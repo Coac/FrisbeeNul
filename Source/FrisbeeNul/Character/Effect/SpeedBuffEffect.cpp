@@ -4,9 +4,7 @@
 #include "SpeedBuffEffect.h"
 
 
-void SpeedBuffEffect::applyStatModifier(StatId statId)
+void SpeedBuffEffect::applyStatModifier()
 {
-	if (statId == StatId::SPEED) {
-		this->character->statList[statId]->addValue(1);
-	}
+	this->character->statList[StatId::SPEED]->addValue(1);
 }

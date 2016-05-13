@@ -1,14 +1,15 @@
 // Fill out your copyright notice in the Description page of Project Settings.
-#include "Effect.h"
 #pragma once
 
+#include "Effect.h"
+
+class Effect;
 /**
  * 
  */
-class FRISBEENUL_API SpeedBuffEffect : Effect
+class FRISBEENUL_API SpeedBuffEffect : public Effect
 {
 public:
-
-	void applyStatModifier(StatId statId);
+	void applyStatModifier();
 
 };

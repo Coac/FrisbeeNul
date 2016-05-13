@@ -3,8 +3,9 @@
 #include "FrisbeeNul.h"
 #include "Stat.h"
 
-Stat::Stat()
+Stat::Stat(float val)
 {
+	this->baseValue = val;
 }
 
 Stat::~Stat()
@@ -13,5 +14,15 @@ Stat::~Stat()
 
 void Stat::addValue(float val)
 {
-	this->calculatedValue = this->baseValue + val;
+	this->calculatedValue += val;
+}
+
+float Stat::getValue()
+{
+	return this->calculatedValue;
+}
+
+void Stat::resetToBase()
+{
+	this->calculatedValue = this->baseValue;
 }
