@@ -3,7 +3,7 @@
 #include "FrisbeeNul.h"
 #include "FrisbeeNulCharacter.h"
 
-AFrisbeeNulCharacter::AFrisbeeNulCharacter()
+AFrisbeeNulCharacter::AFrisbeeNulCharacter(): _health(100)
 {
 	// Set size for player capsule
 	GetCapsuleComponent()->InitCapsuleSize(42.f, 96.0f);
@@ -32,5 +32,5 @@ AFrisbeeNulCharacter::AFrisbeeNulCharacter()
 	TopDownCameraComponent = CreateDefaultSubobject<UCameraComponent>(TEXT("TopDownCamera"));
 	TopDownCameraComponent->AttachTo(CameraBoom, USpringArmComponent::SocketName);
 	TopDownCameraComponent->bUsePawnControlRotation = false; // Camera does not rotate relative to arm
-
+	_spells.Init(0, 15);
 }

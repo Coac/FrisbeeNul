@@ -24,5 +24,12 @@ public:
 	FORCEINLINE class UCameraComponent* GetTopDownCameraComponent() const { return TopDownCameraComponent; }
 	/** Returns CameraBoom subobject **/
 	FORCEINLINE class USpringArmComponent* GetCameraBoom() const { return CameraBoom; }
+
+	UPROPERTY(Category = Move, EditAnywhere, BlueprintReadWrite)
+		float _health;
+
+	UPROPERTY(Category = Move, EditAnywhere, BlueprintReadWrite)
+		TArray<float> _spells;
+
 };
 
